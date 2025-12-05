@@ -1,1 +1,205 @@
-<html><body>Shandoz Cafe</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shando'z Cafe</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0d0d0d;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('espresso.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: brightness(0.7);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px black;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            text-shadow: 2px 2px 10px black;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: #ffffff;
+            background: #6b3e2e;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #8a523d;
+            transform: scale(1.05);
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        nav h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* Music */
+        #music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 18px;
+            background: #6b3e2e;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #music-btn:hover {
+            background: #8a523d;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Music -->
+    <audio id="bgm" muted loop>
+        <source src="Valir Phoenix (1)(1).mp3" type="audio/mpeg">
+    </audio>
+
+    <nav>
+        <h2>Shando'z Cafe</h2>
+        <div>
+            <a href="#">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Shando'z Cafe & Coffee Bar</h1>
+        <p>Hitam Coklat. Musik Nyantai. Kopi Mantap.</p>
+        <a href="menu.html" class="btn">Lihat Menu</a>
+    </div>
+
+    <div id="music-btn">☕ Music</div>
+
+    <script>
+        const audio = document.getElementById("bgm");
+        const btn = document.getElementById("music-btn");
+        let playing = false;
+
+        document.addEventListener("click", function () {
+            if (!playing) {
+                audio.muted = false;
+                audio.volume = 0.4;
+                audio.play();
+                playing = true;
+            }
+        }, { once: true });
+
+        btn.onclick = () => {
+            if (audio.paused) {
+                audio.play();
+                playing = true;
+                btn.textContent = "🔊 Music";
+            } else {
+                audio.pause();
+                playing = false;
+                btn.textContent = "🔇 Music";
+            }
+        };
+    </script>
+
+    <!-- Best Seller Section -->
+    <section class="best-seller" style="padding:60px 20px; background:#111; text-align:center;">
+        <h2 style="font-size:2.2rem; margin-bottom:30px;">Best Seller</h2>
+        <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:25px;">
+            <div style="background:#1a1a1a; padding:20px; width:250px; border-radius:15px; box-shadow:0 0 10px #0007;">
+                <img src="espresso.jpg" style="width:100%; border-radius:10px;">
+                <h3>Espresso</h3>
+                <p>Kopi kuat, pekat, disajikan fresh.</p>
+            </div>
+            <div style="background:#1a1a1a; padding:20px; width:250px; border-radius:15px; box-shadow:0 0 10px #0007;">
+                <img src="espresso.jpg" style="width:100%; border-radius:10px;">
+                <h3>Cappuccino</h3>
+                <p>Perpaduan espresso dan foam creamy.</p>
+            </div>
+            <div style="background:#1a1a1a; padding:20px; width:250px; border-radius:15px; box-shadow:0 0 10px #0007;">
+                <img src="espresso.jpg" style="width:100%; border-radius:10px;">
+                <h3>Cafe Latte</h3>
+                <p>Rasa lembut dengan sentuhan manis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section style="padding:60px 20px; background:#0d0d0d; text-align:center;">
+        <h2 style="font-size:2.2rem; margin-bottom:20px;">Tentang Kami</h2>
+        <p style="max-width:700px; margin:auto; line-height:1.7; opacity:0.9;">
+            Shando'z Cafe adalah tempat nongkrong nyaman dengan suasana gelap elegan, aroma kopi kuat,
+            dan musik santai. Kami menghadirkan pengalaman minum kopi terbaik yang diracik barista berpengalaman.
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding:60px 20px; background:#111; text-align:center;">
+        <h2 style="font-size:2.2rem; margin-bottom:25px;">Hubungi Kami</h2>
+        <p>Email: shandozcafe@gmail.com</p>
+        <p>Instagram: @shandoz.cafe</p>
+        <p>Lokasi: Jl. Kopi Hitam No. 12</p>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding:20px; text-align:center; background:#000; opacity:0.7;">
+        <p>© 2025 Shando'z Cafe. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
