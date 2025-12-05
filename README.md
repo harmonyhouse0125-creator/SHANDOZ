@@ -33,6 +33,6 @@ Website ini menampilkan:
 - JavaScript  
 - GitHub Pages (Hosting)
 
-## 📬 Kontak
+## 📬 Kontak +62 857-0637-0841
 **Shandoz Cafe**  
-📍 Jl. Kopi Hitam No
+📍 Jl. Banceuy Permai c3 No.88 Sumur Bandung
