@@ -21,7 +21,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            backdrop-filter: brightness(0.7);
             padding: 0 20px;
         }
 
@@ -104,6 +103,7 @@
             background: #8a523d;
             transform: scale(1.05);
         }
+
     </style>
 </head>
 <body>
@@ -128,34 +128,9 @@
         <a href="menu.html" class="btn">Lihat Menu</a>
     </div>
 
-    <div id="music-btn">☕ Music</div>
+    <div id="music-btn">🔊 Music</div>
 
-    <script>
-        const audio = document.getElementById("bgm");
-        const btn = document.getElementById("music-btn");
-        let playing = false;
-
-        document.addEventListener("click", function () {
-            if (!playing) {
-                audio.muted = false;
-                audio.volume = 0.4;
-                audio.play();
-                playing = true;
-            }
-        }, { once: true });
-
-        btn.onclick = () => {
-            if (audio.paused) {
-                audio.play();
-                playing = true;
-                btn.textContent = "🔊 Music";
-            } else {
-                audio.pause();
-                playing = false;
-                btn.textContent = "🔇 Music";
-            }
-        };
-    </script>
+    <script src="script.js"></script>
 
     <!-- Best Seller Section -->
     <section class="best-seller" style="padding:60px 20px; background:#111; text-align:center;">
@@ -196,7 +171,6 @@
         <p>Lokasi: Jl.Banceuy Permai C3 No.88 Sumur Bandung</p>
     </section>
 
-    <!-- Footer -->
     <footer style="padding:20px; text-align:center; background:#000; opacity:0.7;">
         <p>© 2025 Shando'z Cafe. Semua Hak Dilindungi.</p>
     </footer>
