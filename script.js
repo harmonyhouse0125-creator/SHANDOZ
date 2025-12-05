@@ -1,35 +1,36 @@
-// Background Music Handler
-const bgm = document.getElementById("bgm");
-const musicBtn = document.getElementById("music-btn");
-let isPlaying = false;
+document.addEventListener("DOMContentLoaded", () => {
 
-// Auto-play after first user interaction
-function enableAutoPlay() {
-    if (!isPlaying) {
+    const bgm = document.getElementById("bgm");
+    const musicBtn = document.getElementById("music-btn");
+    let isPlaying = false;
+
+    // Auto-play setelah klik pertama
+    function enableAutoPlay() {
         bgm.muted = false;
         bgm.volume = 0.4;
-        bgm.play().catch(() => {});
+        bgm.play().catch(()=>{});
         isPlaying = true;
         updateButton();
+        document.removeEventListener("click", enableAutoPlay);
     }
-    document.removeEventListener("click", enableAutoPlay);
-}
 
-document.addEventListener("click", enableAutoPlay, { once: true });
+    document.addEventListener("click", enableAutoPlay, { once: true });
 
-// Toggle button play/pause
-musicBtn.addEventListener("click", () => {
-    if (bgm.paused) {
-        bgm.play();
-        isPlaying = true;
-    } else {
-        bgm.pause();
-        isPlaying = false;
+    // Toggle manual
+    musicBtn.addEventListener("click", () => {
+        if (bgm.paused) {
+            bgm.play();
+            isPlaying = true;
+        } else {
+            bgm.pause();
+            isPlaying = false;
+        }
+        updateButton();
+    });
+
+    // Ubah teks tombol
+    function updateButton() {
+        musicBtn.textContent = isPlaying ? "🔊 Music" : "🔇 Music";
     }
-    updateButton();
+
 });
-
-// Update button UI
-function updateButton() {
-    musicBtn.textContent = isPlaying ? "🔊 Music" : "🔇 Music";
-}
